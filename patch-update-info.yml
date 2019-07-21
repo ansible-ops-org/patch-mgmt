@@ -1,0 +1,11 @@
+---
+- hosts: dev
+  tasks: 
+     - name: check for update
+       yum: list=updates update_cache=true
+       register: out
+     - name: print out
+       debug: 
+         msg: "{{ out.results | map(attribute='name') | list }}"
+       register: out1
+       

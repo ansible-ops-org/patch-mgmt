@@ -1,0 +1,10 @@
+---
+- hosts: admin
+  tasks: 
+      - name: exec script
+        shell: python /home/nik/Desktop/git-repo/python-git/python-ops/rest-api/tower/jobs/patch-mgmt/patch-report-1.py -i /home/nik/Desktop/git-repo/python-git/python-ops/rest-api/tower/jobs/patch-mgmt/admin -f  /home/nik/Desktop/git-repo/python-git/python-ops/rest-api/tower/jobs/patch-mgmt/patch-2.yml
+        register: out
+      - name: print ouput
+        debug:
+          msg: "{{ out.stdout }}" 
+          
